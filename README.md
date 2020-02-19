@@ -1,2 +1,2 @@
 # MD_Python
-Molecular dynamics simulation for statistical physics  for the Leonard Jones potential
+Molecular dynamics simulation for statistical physics  using the Leonard Jones potential

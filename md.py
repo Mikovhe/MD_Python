@@ -1,9 +1,3 @@
-'''This is a code for molecular dynamics in python.
-   I am trying to use classes and see if that will make
-   my code any faster. The first implementation will be for
-   an ideal gas'''
-
-
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.animation as animation
@@ -20,11 +14,13 @@ class particle:
 
 PARTICLES = []
 dt = 0.01
-N = int(raw_input("Insert number of particles\n"))
-L = int(raw_input("Insert length of box\n"))
-steps = int(raw_input("Enter number of steps\n"))
-minR = 0.9
+N = int(input("Insert number of particles\n"))
+L = int(input("Insert length of box\n"))
+steps = int(input("Enter number of steps\n"))
+minR = 1.1
 maxR = 3.2
+np.random.seed(42)
+
 def initialize():
     cvx= 0.0
     cvy=0.0
@@ -80,7 +76,6 @@ def update():
                     p2.force -=f
         p1.acceleration = p1.force
 
-
 def Leonard_Force(r):
         sigma= 1.0
         eps = 1.0
@@ -91,7 +86,7 @@ def main():
     ims = []
     fig = plt.figure()
     initialize()
-    for i in range(steps):
+    for _ in range(steps):
         update()
         verlet_algorithm()
 
@@ -107,10 +102,9 @@ def main():
     ax = fig.add_subplot(111)
     ax.set_xlim(0,L)
     ax.set_ylim(0,L)
-    anim = animation.ArtistAnimation(fig,ims,interval = 400,blit = True,repeat_delay = 0)
+    anim = animation.ArtistAnimation(fig,ims,interval = 800,blit = False,repeat_delay = 0)
     plt.title("Molecular dynamics for an Ideal gas")
     plt.show()
 
 
 main()
-
