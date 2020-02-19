@@ -103,7 +103,7 @@ def main():
     ax.set_xlim(0,L)
     ax.set_ylim(0,L)
     anim = animation.ArtistAnimation(fig,ims,interval = 800,blit = False,repeat_delay = 0)
-    plt.title("Molecular dynamics for an Ideal gas")
+    plt.title("Molecular dynamics simulation")
     plt.show()
 
 
